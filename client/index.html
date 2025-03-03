@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteMinder | Modern Note Taking App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-sticky-note"></i> NoteMinder</h1>
+            <div id="auth-section">
+                <!-- Auth buttons will be added here dynamically -->
+            </div>
+        </header>
+
+        <div id="auth-forms" class="hidden">
+            <div id="login-form">
+                <h2><i class="fas fa-sign-in-alt"></i> Welcome Back</h2>
+                <form id="login">
+                    <div class="form-group">
+                        <label for="login-email">Email Address</label>
+                        <input type="email" id="login-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn">Login <i class="fas fa-arrow-right"></i></button>
+                </form>
+                <p>Don't have an account? <a href="#" id="show-register">Create one now</a></p>
+            </div>
+
+            <div id="register-form" class="hidden">
+                <h2><i class="fas fa-user-plus"></i> Create Account</h2>
+                <form id="register">
+                    <div class="form-group">
+                        <label for="register-name">Full Name</label>
+                        <input type="text" id="register-name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email Address</label>
+                        <input type="email" id="register-email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" placeholder="Choose a password (min. 6 characters)" required minlength="6">
+                    </div>
+                    <button type="submit" class="btn">Register <i class="fas fa-user-check"></i></button>
+                </form>
+                <p>Already have an account? <a href="#" id="show-login">Sign in</a></p>
+            </div>
+        </div>
+
+        <main id="notes-section" class="hidden">
+            <div class="notes-header">
+                <h2><i class="fas fa-book"></i> My Notes</h2>
+                <button id="add-note-btn" class="btn"><i class="fas fa-plus"></i> Add Note</button>
+            </div>
+            
+            <div id="notes-container">
+                <!-- Notes will be added here dynamically -->
+            </div>
+
+            <div id="note-form" class="hidden">
+                <h2 id="form-title"><i class="fas fa-edit"></i> Add Note</h2>
+                <form id="save-note-form">
+                    <input type="hidden" id="note-id">
+                    <div class="form-group">
+                        <label for="note-title">Title</label>
+                        <input type="text" id="note-title" placeholder="Enter note title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="note-content">Content</label>
+                        <textarea id="note-content" rows="6" placeholder="Write your note here..." required></textarea>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn"><i class="fas fa-save"></i> Save Note</button>
+                        <button type="button" id="cancel-btn" class="btn btn-secondary"><i class="fas fa-times"></i> Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+
+    <div id="alert-container"></div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/notes.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
